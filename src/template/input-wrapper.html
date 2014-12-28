@@ -1,0 +1,25 @@
+<div class="{{vm.containerFieldClass}}" >
+
+
+    <label class="{{vm.labelClass}}" for="{{vm.name}}">
+        {{vm.labelTitle}}<span ng-show="vm.required"
+                            class="required-fields">&nbsp;*</span>
+    </label>
+
+    <div class="{{vm.containerInputClass}}"
+         ng-class="{'has-error':vm.field.$invalid  && vm.form.submitted}">
+        <div ng-transclude>
+                <!-- input goes here !-->
+        </div>
+        <div ng-show="vm.field.$invalid  && vm.form.submitted">
+            <p class="help-block" ng-show="vm.field.$error.required && !vm.field.$error.number">{{vm.errorRequired}}</p>
+            <p class="help-block" ng-show="vm.field.$error.maxlength">{{vm.errorMaxlength}}</p>
+            <p class="help-block" ng-show="vm.field.$error.number">{{vm.errorNumber}}</p>
+        </div>
+        <div>
+        {{vm.errorMaxLength}}</div>
+    </div>
+
+
+
+</div>

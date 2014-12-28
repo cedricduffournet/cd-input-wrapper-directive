@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Angular cd-menu</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" rel="stylesheet">
+    <base href="/"/>
+
+</head>
+<body ng-controller="AppCtrl as vm">
+<div role="main">
+
+    <div class="container">
+        <form class="form-horizontal" role="form" name="vm.form" novalidate ng-submit="vm.submit()">
+            <div cd-input-wrapper
+                 name="name"
+                 container-field-class="form-group"
+                 label-class="col-sm-3  control-label"
+                 container-input-class="col-sm-8"
+                 required="false"
+                 label-title="Title"
+                 error-required="Required field"
+                 error-maxlength="Too long "
+                 error-number="Number required">
+
+                <input type="text"
+                       class="form-control"
+                       name="name"
+                       id="name"
+                       placeholder="name"
+                       ng-maxlength="3"
+                       ng-model="vm.name"
+                       ng-min="0"
+                       ng-max="255"
+                       ng-disabled="disabled">
+
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-8">
+                    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script src="scripts/bower_components/angular/angular.js"></script>
+<script src="scripts/src/template/cd-input-wrapper-directive.tpl.js"></script>
+<script src="scripts/src/cd-input-wrapper-directive.js"></script>
+
+
+<script src="demo.js"></script>
+
+</body>
+</html>
