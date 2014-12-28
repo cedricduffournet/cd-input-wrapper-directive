@@ -16,9 +16,9 @@ angular.module("template/input-wrapper.html", []).run(["$templateCache", functio
     "                <!-- input goes here !-->\n" +
     "        </div>\n" +
     "        <div ng-show=\"vm.field.$invalid  && vm.form.submitted\">\n" +
-    "            <p class=\"help-block\" ng-show=\"vm.field.$error.required && !vm.field.$error.number\">{{vm.errorRequired}}</p>\n" +
-    "            <p class=\"help-block\" ng-show=\"vm.field.$error.maxlength\">{{vm.errorMaxlength}}</p>\n" +
-    "            <p class=\"help-block\" ng-show=\"vm.field.$error.number\">{{vm.errorNumber}}</p>\n" +
+    "            <p class=\"help-block\" ng-show=\"vm.field.$error.required && !vm.field.$error.number\">{{vm.errorMessages.required}}</p>\n" +
+    "            <p class=\"help-block\" ng-show=\"vm.field.$error.maxlength\">{{vm.errorMessages.maxlength}}</p>\n" +
+    "            <p class=\"help-block\" ng-show=\"vm.field.$error.number\">{{vm.errorMessages.number}}</p>\n" +
     "        </div>\n" +
     "        <div>\n" +
     "        {{vm.errorMaxLength}}</div>\n" +

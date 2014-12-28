@@ -29,8 +29,9 @@
                  error-maxlength="Too long "
                  error-number="Number required">
 
-                <input type="text"
+                <input type="number"
                        class="form-control"
+                       required="true"
                        name="name"
                        id="name"
                        placeholder="name"
@@ -54,6 +55,7 @@
 <script src="scripts/bower_components/angular/angular.js"></script>
 <script src="scripts/src/template/cd-input-wrapper-directive.tpl.js"></script>
 <script src="scripts/src/cd-input-wrapper-directive.js"></script>
+<script src="scripts/src/cd-error-message-provider.js"></script>
 
 
 <script src="demo.js"></script>

@@ -12,9 +12,9 @@
                 <!-- input goes here !-->
         </div>
         <div ng-show="vm.field.$invalid  && vm.form.submitted">
-            <p class="help-block" ng-show="vm.field.$error.required && !vm.field.$error.number">{{vm.errorRequired}}</p>
-            <p class="help-block" ng-show="vm.field.$error.maxlength">{{vm.errorMaxlength}}</p>
-            <p class="help-block" ng-show="vm.field.$error.number">{{vm.errorNumber}}</p>
+            <p class="help-block" ng-show="vm.field.$error.required && !vm.field.$error.number">{{vm.errorMessages.required}}</p>
+            <p class="help-block" ng-show="vm.field.$error.maxlength">{{vm.errorMessages.maxlength}}</p>
+            <p class="help-block" ng-show="vm.field.$error.number">{{vm.errorMessages.number}}</p>
         </div>
         <div>
         {{vm.errorMaxLength}}</div>

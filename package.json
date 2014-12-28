@@ -1,6 +1,6 @@
 {
   "name": "cd-input-wrapper-directive",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wrap input form (bootstrap style)",
   "devDependencies": {
     "connect-modrewrite": "~0.6.4-pre",
@@ -20,7 +20,7 @@
   },
   "keywords": [
     "AngularJS",
-    "menu",
+    "wrapper",
     "directive"
   ],
   "author": "Cedric Duffournet",

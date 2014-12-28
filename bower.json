@@ -1,7 +1,7 @@
 {
   "name": "cd-input-wrapper-directive",
-  "version": "0.0.1",
-  "main":["src/cd-input-wrapper-directive.js","src/template/cd-input-wrapper-directive.tpl.js"],
+  "version": "0.0.2",
+  "main":["src/cd-input-wrapper-directive.js","src/template/cd-input-wrapper-directive.tpl.js","src/cd-error-message-provider.js"],
   "description": "Wrap input form (bootstrap style)",
   "author": "Cedric Duffournet",
   "hompage": "",
