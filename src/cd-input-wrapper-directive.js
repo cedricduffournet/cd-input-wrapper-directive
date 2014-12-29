@@ -49,7 +49,7 @@
     return directive;
 
     function linkFunc($scope, element, attrs, form, transclude) {
-
+      var typeInput = '';
       //to get the element name
       transclude(function (clone) {
         var els = Array.prototype.slice.call(clone);
@@ -59,6 +59,8 @@
 
         $scope.vm.name = els[0].name;
         $scope.vm.required = els[0].required;
+        typeInput = els[0].type;
+
       });
 
       $scope.vm.form = form;
@@ -74,7 +76,13 @@
       }
 
       if (!angular.isDefined($scope.vm.containerInputClass)) {
-        $scope.vm.containerInputClass = CssForm.wrapperInput;
+        switch (typeInput) {
+          case 'number':
+            $scope.vm.containerInputClass = CssForm.wrapperInputNumber;
+            break;
+          default:
+            $scope.vm.containerInputClass = CssForm.wrapperInput;
+        }
       }
 
       if (!angular.isDefined($scope.vm.labelClass)) {

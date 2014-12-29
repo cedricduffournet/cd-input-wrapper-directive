@@ -26,8 +26,7 @@
       controller: CdInput,
       controllerAs: 'vm',
       bindToController: true,
-      scope: {
-      },
+      scope: {},
       link: linkFunc
     };
 
