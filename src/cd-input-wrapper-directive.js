@@ -13,7 +13,6 @@
    * @param {String=} containerInputClass CSS class for input container
    * @param {String=} labelClass CSS class for label
    * @param {String=} labelTitle title of the label
-   * @param {Boolean=} required is field required ?
    * @param {Boolean=} largeInput is field large ?
    *
    * @toDo
@@ -42,24 +41,24 @@
         containerInputClass: '@containerInputClass',
         labelClass: '@labelClass',
         labelTitle: '@labelTitle',
-        required: '=required',
         largeInput: '=largeInput'
-
       },
       link: linkFunc
     };
 
     return directive;
 
-    function linkFunc($scope, element, attrs, form,transclude) {
+    function linkFunc($scope, element, attrs, form, transclude) {
 
       //to get the element name
-      transclude(function(clone){
+      transclude(function (clone) {
         var els = Array.prototype.slice.call(clone);
         els = els.filter(function (element) {
           return element.nodeType !== Node.TEXT_NODE;
         });
+
         $scope.vm.name = els[0].name;
+        $scope.vm.required = els[0].required;
       });
 
       $scope.vm.form = form;
@@ -67,7 +66,6 @@
       $scope.vm.errorMessages = ErrorMessages;
 
 
-      //$scope.vm.name = $scope.vm.field.$name;
       if (!angular.isDefined($scope.vm.containerFieldClass)) {
         $scope.vm.containerFieldClass = CssForm.wrapperField;
         if (angular.isDefined($scope.vm.largeInput) && $scope.vm.largeInput) {
