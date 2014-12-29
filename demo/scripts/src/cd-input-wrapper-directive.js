@@ -57,10 +57,9 @@
           return element.nodeType !== Node.TEXT_NODE;
         });
 
-        $scope.vm.name = els[0].name;
-        $scope.vm.required = els[0].required;
-        typeInput = els[0].type;
-
+        var myELem =  angular.element(els[0]);
+        $scope.vm.name = myELem.attr('name');
+        $scope.vm.required = (myELem.attr('ng-required') || els[0].required);
       });
 
       $scope.vm.form = form;
