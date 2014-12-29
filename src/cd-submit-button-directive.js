@@ -28,7 +28,6 @@
       templateUrl: 'template/submit-button.html',
       restrict: 'E',
       replace: false,
-      transclude: true,
       require: '^form',
       controller: SubmitButtonController,
       controllerAs: 'vm',

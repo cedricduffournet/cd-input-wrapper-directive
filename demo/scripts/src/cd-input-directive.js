@@ -21,14 +21,12 @@
   cdInput.$inject = ['ErrorMessages', 'CssForm'];
   function cdInput(ErrorMessages, CssForm) {
     var directive = {
-      templateUrl: 'template/input-wrapper.html',
       restrict: 'A',
       replace: false,
       controller: CdInput,
       controllerAs: 'vm',
       bindToController: true,
       scope: {
-
       },
       link: linkFunc
     };
@@ -36,7 +34,6 @@
     return directive;
 
     function linkFunc($scope, element, attrs) {
-
       if (!angular.isDefined(attrs.class)) {
         element.addClass(CssForm.input);
       }

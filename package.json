@@ -1,6 +1,6 @@
 {
   "name": "cd-input-wrapper-directive",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Wrap input form (bootstrap style)",
   "devDependencies": {
     "connect-modrewrite": "~0.6.4-pre",

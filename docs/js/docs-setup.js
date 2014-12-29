@@ -5,6 +5,15 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
+      "id": "cd.ui.inputWrapper.directive:cdInput",
+      "shortName": "cdInput",
+      "type": "directive",
+      "moduleName": "cd.ui.inputWrapper",
+      "shortDescription": "Add class on input if not set",
+      "keywords": "add api cd class directive input inputwrapper set test ui write"
+    },
+    {
+      "section": "api",
       "id": "cd.ui.inputWrapper.directive:cdInputWrapper",
       "shortName": "cdInputWrapper",
       "type": "directive",
