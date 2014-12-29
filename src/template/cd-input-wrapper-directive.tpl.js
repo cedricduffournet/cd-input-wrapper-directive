@@ -1,4 +1,4 @@
-angular.module('cd.ui.inputWrapperTpl', ['template/input-wrapper.html']);
+angular.module('cd.ui.inputWrapperTpl', ['template/input-wrapper.html', 'template/submit-button.html']);
 
 angular.module("template/input-wrapper.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/input-wrapper.html",
@@ -20,12 +20,19 @@ angular.module("template/input-wrapper.html", []).run(["$templateCache", functio
     "            <p class=\"help-block\" ng-show=\"vm.field.$error.maxlength\">{{vm.errorMessages.maxlength}}</p>\n" +
     "            <p class=\"help-block\" ng-show=\"vm.field.$error.number\">{{vm.errorMessages.number}}</p>\n" +
     "        </div>\n" +
-    "        <div>\n" +
-    "        {{vm.errorMaxLength}}</div>\n" +
     "    </div>\n" +
     "\n" +
     "\n" +
     "\n" +
     "</div>\n" +
     "");
+}]);
+
+angular.module("template/submit-button.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("template/submit-button.html",
+    "<div class=\"{{vm.containerFieldClass}}\">\n" +
+    "                <div class=\"{{vm.containerSubmitClass}}\">\n" +
+    "                    <button type=\"submit\" class=\"{{vm.buttonClass}}\">{{vm.title}}</button>\n" +
+    "                </div>\n" +
+    "            </div>");
 }]);
