@@ -13,7 +13,8 @@
       wrapperSubmit:'col-sm-offset-3 col-sm-8',
       label: 'col-sm-3  control-label',
       input: 'form-control',
-      submit:'btn btn-primary btn-submit'
+      submit:'btn btn-primary btn-submit',
+      groupInputLarge:'form-group-lg'
     };
     _this.setCssForm = setCssForm;
     _this.$get = getFunction;

@@ -15,6 +15,7 @@
    * @param {String=} labelTitle title of the label
    * @param {String=} name input name
    * @param {Boolean=} required is field required ?
+   * @param {Boolean=} largeInput is field large ?
    *
    * @toDo
    * Write test
@@ -43,7 +44,8 @@
         labelClass: '@labelClass',
         labelTitle: '@labelTitle',
         name: '@name',
-        required: '=required'
+        required: '=required',
+        largeInput: '=largeInput'
 
       },
       link: linkFunc
@@ -58,7 +60,11 @@
 
       if (!angular.isDefined($scope.vm.containerFieldClass)) {
         $scope.vm.containerFieldClass = CssForm.wrapperField;
+        if (angular.isDefined($scope.vm.largeInput) && $scope.vm.largeInput) {
+          $scope.vm.containerFieldClass += ' ' + CssForm.groupInputLarge;
+        }
       }
+
 
       if (!angular.isDefined($scope.vm.containerInputClass)) {
         $scope.vm.containerInputClass = CssForm.wrapperInput;

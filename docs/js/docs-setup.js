@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "cd.ui.inputWrapper",
       "shortDescription": "Wrap input element in form",
-      "keywords": "api cd class container containerfieldclass containerinputclass css directive element field form input inputwrapper label labelclass labeltitle required test title ui wrap write"
+      "keywords": "api cd class container containerfieldclass containerinputclass css directive element field form input inputwrapper label labelclass labeltitle large largeinput required test title ui wrap write"
     },
     {
       "section": "api",
