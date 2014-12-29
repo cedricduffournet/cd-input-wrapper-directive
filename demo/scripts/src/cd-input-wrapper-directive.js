@@ -26,8 +26,8 @@
     .directive('cdInputWrapper', inputWrapper);
 
 
-  inputWrapper.$inject = ['ErrorMessages'];
-  function inputWrapper(ErrorMessages) {
+  inputWrapper.$inject = ['ErrorMessages', 'CssForm'];
+  function inputWrapper(ErrorMessages, CssForm) {
     var directive = {
       templateUrl: 'template/input-wrapper.html',
       restrict: 'A',
@@ -55,6 +55,19 @@
       $scope.vm.form = form;
       $scope.vm.field = form[$scope.vm.name];
       $scope.vm.errorMessages = ErrorMessages;
+
+      if (!angular.isDefined($scope.vm.containerFieldClass)) {
+        $scope.vm.containerFieldClass = CssForm.wrapperField;
+      }
+
+      if (!angular.isDefined($scope.vm.containerInputClass)) {
+        $scope.vm.containerInputClass = CssForm.wrapperInput;
+      }
+
+      if (!angular.isDefined($scope.vm.labelClass)) {
+        $scope.vm.labelClass = CssForm.label;
+      }
+
     }
   }
 
