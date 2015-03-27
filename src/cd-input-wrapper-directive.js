@@ -60,6 +60,7 @@
         var myELem =  angular.element(els[0]);
         $scope.vm.name = myELem.attr('name');
         $scope.vm.required = (myELem.attr('ng-required') || els[0].required);
+        typeInput = myELem.attr('type');
       });
 
       $scope.vm.form = form;
