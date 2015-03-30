@@ -10,9 +10,11 @@
          ng-class="{'has-error':vm.field.$invalid  && vm.form.submitted}">
          <div class="row">
             <div class="{{vm.containerInputClass}}">
-                <div ng-transclude>
+                <div ng-transclude ng-class="{'input-group':vm.inputGroup}">
                         <!-- input goes here !-->
+
                 </div>
+
             </div>
         </div>
         <div class="row" ng-show="vm.helpTranslateId != ''">

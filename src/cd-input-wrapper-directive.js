@@ -43,7 +43,8 @@
         labelClass: '@labelClass',
         labelTitle: '@labelTitle',
         largeInput: '=largeInput',
-        helpTranslateId:'@helpTranslateId'
+        helpTranslateId:'@helpTranslateId',
+        inputGroup:'=inputGroup'
       },
       link: linkFunc
     };

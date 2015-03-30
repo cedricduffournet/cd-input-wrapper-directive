@@ -14,9 +14,11 @@ angular.module("template/input-wrapper.html", []).run(["$templateCache", functio
     "         ng-class=\"{'has-error':vm.field.$invalid  && vm.form.submitted}\">\n" +
     "         <div class=\"row\">\n" +
     "            <div class=\"{{vm.containerInputClass}}\">\n" +
-    "                <div ng-transclude>\n" +
+    "                <div ng-transclude ng-class=\"{'input-group':vm.inputGroup}\">\n" +
     "                        <!-- input goes here !-->\n" +
+    "\n" +
     "                </div>\n" +
+    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"row\" ng-show=\"vm.helpTranslateId != ''\">\n" +

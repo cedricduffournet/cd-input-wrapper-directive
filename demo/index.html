@@ -20,7 +20,8 @@
         <form class="form-horizontal" role="form" name="vm.form" novalidate ng-submit="vm.submit()">
             <div cd-input-wrapper
                  label-title="Title"
-                 large-input="true">
+                 large-input="true"
+                 input-group="false">
 
 
                 <input type="text"
@@ -34,7 +35,7 @@
                        ng-max="255"
                        ng-disabled="disabled"
                        cd-input >
-
+                <div class="input-group-addon">.00</div>
             </div>
             <cd-submit-button title="submit"></cd-submit-button>
         </form>
