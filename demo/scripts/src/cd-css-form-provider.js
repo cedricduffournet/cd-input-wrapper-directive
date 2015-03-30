@@ -9,7 +9,7 @@
 
     _this.cssForm = {
       wrapperField: 'form-group',
-      wrapperInput: 'col-sm-8',
+      wrapperInput: 'col-sm-12',
       wrapperInputNumber: 'col-sm-3',
       wrapperSubmit:'col-sm-offset-3 col-sm-8',
       label: 'col-sm-3  control-label',
