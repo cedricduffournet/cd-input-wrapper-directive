@@ -79,9 +79,10 @@
                     els = els.filter(function (element) {
                         return element.nodeType !== Node.TEXT_NODE;
                     });
+                    myELem = angular.element(els[0]);
                 }
 
-                myELem = angular.element(els[0]);
+
 
                 //console.log(els[0]);
                 $scope.vm.name = myELem.attr('name');
