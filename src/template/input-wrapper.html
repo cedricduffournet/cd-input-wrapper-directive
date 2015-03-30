@@ -6,15 +6,28 @@
                             class="required-fields">&nbsp;*</span>
     </label>
 
-    <div class="{{vm.containerInputClass}}"
+    <div class="col-sm-9"
          ng-class="{'has-error':vm.field.$invalid  && vm.form.submitted}">
-        <div ng-transclude>
-                <!-- input goes here !-->
+         <div class="row">
+            <div class="{{vm.containerInputClass}}">
+                <div ng-transclude>
+                        <!-- input goes here !-->
+                </div>
+            </div>
         </div>
-        <div ng-show="vm.field.$invalid  && vm.form.submitted">
-            <p class="help-block" ng-show="vm.field.$error.required && !vm.field.$error.number">{{vm.errorMessages.required}}</p>
-            <p class="help-block" ng-show="vm.field.$error.maxlength">{{vm.errorMessages.maxlength}}</p>
-            <p class="help-block" ng-show="vm.field.$error.number">{{vm.errorMessages.number}}</p>
+        <div class="row" ng-show="vm.helpTranslateId != ''">
+            <div class="col-sm-9">
+                <p class="help-block" translate="{{vm.helpTranslateId}}">
+
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div ng-show="vm.field.$invalid  && vm.form.submitted" class="col-sm-9">
+                <p class="help-block" ng-show="vm.field.$error.required && !vm.field.$error.number">{{vm.errorMessages.required}} qdjksh dkjqsdq sdhkqjks hqjks dqhhskdq lqksj dljqsld qlsj dkljqlk jdlqsj</p>
+                <p class="help-block" ng-show="vm.field.$error.maxlength">{{vm.errorMessages.maxlength}}</p>
+                <p class="help-block" ng-show="vm.field.$error.number">{{vm.errorMessages.number}}</p>
+            </div>
         </div>
     </div>
 

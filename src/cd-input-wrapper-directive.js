@@ -35,13 +35,15 @@
       require: '^form',
       controller: InputWrapperController,
       controllerAs: 'vm',
+
       bindToController: true,
       scope: {
         containerFieldClass: '@containerFieldClass',
         containerInputClass: '@containerInputClass',
         labelClass: '@labelClass',
         labelTitle: '@labelTitle',
-        largeInput: '=largeInput'
+        largeInput: '=largeInput',
+        helpTranslateId:'@helpTranslateId'
       },
       link: linkFunc
     };
@@ -49,7 +51,15 @@
     return directive;
 
     function linkFunc($scope, element, attrs, form, transclude) {
+
+
       var typeInput = '';
+
+      if(!angular.isDefined($scope.vm.helpTranslateId)){
+        $scope.vm.helpTranslateId='';
+      }
+
+      //console.log($scope.vm.helpTranslateId);
       //to get the element name
       transclude(function (clone) {
         var els = Array.prototype.slice.call(clone);

@@ -10,15 +10,28 @@ angular.module("template/input-wrapper.html", []).run(["$templateCache", functio
     "                            class=\"required-fields\">&nbsp;*</span>\n" +
     "    </label>\n" +
     "\n" +
-    "    <div class=\"{{vm.containerInputClass}}\"\n" +
+    "    <div class=\"col-sm-9\"\n" +
     "         ng-class=\"{'has-error':vm.field.$invalid  && vm.form.submitted}\">\n" +
-    "        <div ng-transclude>\n" +
-    "                <!-- input goes here !-->\n" +
+    "         <div class=\"row\">\n" +
+    "            <div class=\"{{vm.containerInputClass}}\">\n" +
+    "                <div ng-transclude>\n" +
+    "                        <!-- input goes here !-->\n" +
+    "                </div>\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "        <div ng-show=\"vm.field.$invalid  && vm.form.submitted\">\n" +
-    "            <p class=\"help-block\" ng-show=\"vm.field.$error.required && !vm.field.$error.number\">{{vm.errorMessages.required}}</p>\n" +
-    "            <p class=\"help-block\" ng-show=\"vm.field.$error.maxlength\">{{vm.errorMessages.maxlength}}</p>\n" +
-    "            <p class=\"help-block\" ng-show=\"vm.field.$error.number\">{{vm.errorMessages.number}}</p>\n" +
+    "        <div class=\"row\" ng-show=\"vm.helpTranslateId != ''\">\n" +
+    "            <div class=\"col-sm-9\">\n" +
+    "                <p class=\"help-block\" translate=\"{{vm.helpTranslateId}}\">\n" +
+    "\n" +
+    "                </p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "            <div ng-show=\"vm.field.$invalid  && vm.form.submitted\" class=\"col-sm-9\">\n" +
+    "                <p class=\"help-block\" ng-show=\"vm.field.$error.required && !vm.field.$error.number\">{{vm.errorMessages.required}} qdjksh dkjqsdq sdhkqjks hqjks dqhhskdq lqksj dljqsld qlsj dkljqlk jdlqsj</p>\n" +
+    "                <p class=\"help-block\" ng-show=\"vm.field.$error.maxlength\">{{vm.errorMessages.maxlength}}</p>\n" +
+    "                <p class=\"help-block\" ng-show=\"vm.field.$error.number\">{{vm.errorMessages.number}}</p>\n" +
+    "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "\n" +
