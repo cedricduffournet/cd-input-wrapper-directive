@@ -1,6 +1,6 @@
 {
   "name": "cd-input-wrapper-directive",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "main":["src/cd-input-wrapper-directive.js",
           "src/cd-submit-button-directive.js",
           "src/template/cd-input-wrapper-directive.tpl.js",
