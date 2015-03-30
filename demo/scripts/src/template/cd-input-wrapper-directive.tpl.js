@@ -28,7 +28,7 @@ angular.module("template/input-wrapper.html", []).run(["$templateCache", functio
     "        </div>\n" +
     "        <div class=\"row\">\n" +
     "            <div ng-show=\"vm.field.$invalid  && vm.form.submitted\" class=\"col-sm-9\">\n" +
-    "                <p class=\"help-block\" ng-show=\"vm.field.$error.required && !vm.field.$error.number\">{{vm.errorMessages.required}} qdjksh dkjqsdq sdhkqjks hqjks dqhhskdq lqksj dljqsld qlsj dkljqlk jdlqsj</p>\n" +
+    "                <p class=\"help-block\" ng-show=\"vm.field.$error.required && !vm.field.$error.number\">{{vm.errorMessages.required}}</p>\n" +
     "                <p class=\"help-block\" ng-show=\"vm.field.$error.maxlength\">{{vm.errorMessages.maxlength}}</p>\n" +
     "                <p class=\"help-block\" ng-show=\"vm.field.$error.number\">{{vm.errorMessages.number}}</p>\n" +
     "            </div>\n" +
