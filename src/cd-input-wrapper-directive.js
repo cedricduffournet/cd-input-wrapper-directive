@@ -75,7 +75,7 @@
                 var myELem = angular.element(els[0]);
 
                 //checkbox
-                if (myELem[0].nodeName == 'DIV') {
+                if (myELem[0].nodeName == 'DIV'  && myELem[0].className.indexOf('checkbox')!=-1) {
                     els = Array.prototype.slice.call(els[0].childNodes);
                     els = els.filter(function (element) {
                         return element.nodeType !== Node.TEXT_NODE;
