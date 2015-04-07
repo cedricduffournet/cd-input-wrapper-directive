@@ -74,6 +74,16 @@
 
                 var myELem = angular.element(els[0]);
 
+                //checkbox
+                if (myELem[0].nodeName == 'DIV') {
+                    els = Array.prototype.slice.call(els[0].childNodes);
+                    els = els.filter(function (element) {
+                        return element.nodeType !== Node.TEXT_NODE;
+                    });
+                    myELem = angular.element(els[0]);
+                }
+
+                //checkbox ou radio
                 if (myELem[0].nodeName == 'LABEL') {
                     els = Array.prototype.slice.call(els[0].childNodes);
                     els = els.filter(function (element) {
