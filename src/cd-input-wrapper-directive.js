@@ -25,9 +25,10 @@
         .directive('cdInputWrapper', inputWrapper);
 
 
-    inputWrapper.$inject = ['ErrorMessages', 'CssForm'];
-    function inputWrapper(ErrorMessages, CssForm) {
+    inputWrapper.$inject = ['ErrorMessages', 'CssForm', '$compile', '$timeout'];
+    function inputWrapper(ErrorMessages, CssForm, $compile, $timeout) {
         var directive = {
+
             templateUrl: 'template/input-wrapper.html',
             restrict: 'A',
             replace: false,
@@ -47,9 +48,22 @@
                 inputGroup: '=inputGroup'
             },
             link: linkFunc
+            
         };
 
         return directive;
+
+        function compileFunc(tElement, tAttrs) {
+            return function link($scope, element, attrs, form, transcludeFn) {
+                transcludeFn($scope, function (clone, innerScope) {
+                    var test = $compile(clone)($scope);
+                    $scope.apply();
+                    console.log(test);
+                });
+                //$compile(element, transcludeFn)(scope);
+
+            }
+        }
 
         function linkFunc($scope, element, attrs, form, transclude) {
 
@@ -59,72 +73,66 @@
             if (!angular.isDefined($scope.vm.helpTranslateId)) {
                 $scope.vm.helpTranslateId = '';
             }
+            $timeout(function () {
+                //to get the element name
+                transclude($scope, function (clone, innerScope) {
 
-            //console.log($scope.vm.helpTranslateId);
-            //to get the element name
-            transclude(function (clone) {
+                    var els = Array.prototype.slice.call(clone);
+
+                    els = els.filter(function (element) {
+                        return element.nodeType !== Node.TEXT_NODE;
+                    });
 
 
-                var els = Array.prototype.slice.call(clone);
+                    var myELem = angular.element(els[0]);
 
-                els = els.filter(function (element) {
-                    return element.nodeType !== Node.TEXT_NODE;
+
+                    //checkbox
+                    if (myELem[0].nodeName == 'DIV' && myELem[0].className.indexOf('containerCheckbox') != -1) {
+                        myELem = angular.element(myELem[0]);
+                    }
+
+
+                    //checkbox ou radio
+                    if (myELem[0].nodeName == 'LABEL') {
+                        els = Array.prototype.slice.call(els[0].childNodes);
+                        els = els.filter(function (element) {
+                            return element.nodeType !== Node.TEXT_NODE;
+                        });
+                        myELem = angular.element(els[0]);
+                    }
+                    $scope.vm.name = myELem.attr('name');
+                    $scope.vm.required = (myELem.attr('ng-required') || els[0].required);
+                    typeInput = myELem.attr('type');
                 });
 
+                $scope.vm.form = form;
+                $scope.vm.field = form[$scope.vm.name];
+                $scope.vm.errorMessages = ErrorMessages;
 
-                var myELem = angular.element(els[0]);
 
-                //checkbox
-                if (myELem[0].nodeName == 'DIV'  && myELem[0].className.indexOf('checkbox')!=-1) {
-                    els = Array.prototype.slice.call(els[0].childNodes);
-                    els = els.filter(function (element) {
-                        return element.nodeType !== Node.TEXT_NODE;
-                    });
-                    myELem = angular.element(els[0]);
+                if (!angular.isDefined($scope.vm.containerFieldClass)) {
+                    $scope.vm.containerFieldClass = CssForm.wrapperField;
+                    if (angular.isDefined($scope.vm.largeInput) && $scope.vm.largeInput) {
+                        $scope.vm.containerFieldClass += ' ' + CssForm.groupInputLarge;
+                    }
                 }
 
-                //checkbox ou radio
-                if (myELem[0].nodeName == 'LABEL') {
-                    els = Array.prototype.slice.call(els[0].childNodes);
-                    els = els.filter(function (element) {
-                        return element.nodeType !== Node.TEXT_NODE;
-                    });
-                    myELem = angular.element(els[0]);
+                if (!angular.isDefined($scope.vm.containerInputClass)) {
+                    switch (typeInput) {
+                        case 'number':
+                            $scope.vm.containerInputClass = CssForm.wrapperInputNumber;
+                            break;
+                        default:
+                            $scope.vm.containerInputClass = CssForm.wrapperInput;
+                    }
                 }
 
+                if (!angular.isDefined($scope.vm.labelClass)) {
+                    $scope.vm.labelClass = CssForm.label;
+                }
 
-
-                //console.log(els[0]);
-                $scope.vm.name = myELem.attr('name');
-                $scope.vm.required = (myELem.attr('ng-required') || els[0].required);
-                typeInput = myELem.attr('type');
             });
-
-            $scope.vm.form = form;
-            $scope.vm.field = form[$scope.vm.name];
-            $scope.vm.errorMessages = ErrorMessages;
-
-
-            if (!angular.isDefined($scope.vm.containerFieldClass)) {
-                $scope.vm.containerFieldClass = CssForm.wrapperField;
-                if (angular.isDefined($scope.vm.largeInput) && $scope.vm.largeInput) {
-                    $scope.vm.containerFieldClass += ' ' + CssForm.groupInputLarge;
-                }
-            }
-
-            if (!angular.isDefined($scope.vm.containerInputClass)) {
-                switch (typeInput) {
-                    case 'number':
-                        $scope.vm.containerInputClass = CssForm.wrapperInputNumber;
-                        break;
-                    default:
-                        $scope.vm.containerInputClass = CssForm.wrapperInput;
-                }
-            }
-
-            if (!angular.isDefined($scope.vm.labelClass)) {
-                $scope.vm.labelClass = CssForm.label;
-            }
 
         }
     }
