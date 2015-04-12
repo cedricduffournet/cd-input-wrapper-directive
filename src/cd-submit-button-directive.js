@@ -27,7 +27,7 @@
     var directive = {
       templateUrl: 'template/submit-button.html',
       restrict: 'E',
-      replace: false,
+      replace: true,
       require: '^form',
       controller: SubmitButtonController,
       controllerAs: 'vm',
@@ -36,9 +36,11 @@
         containerFieldClass: '@containerFieldClass',
         containerSubmitClass: '@containerSubmitClass',
         buttonClass: '@buttonClass',
-        title: '@title'
+        title: '@title',
+        withCloseButton:'=withCloseButton'
       },
-      link: linkFunc
+      link: linkFunc,
+      transclude:true
     };
 
     return directive;

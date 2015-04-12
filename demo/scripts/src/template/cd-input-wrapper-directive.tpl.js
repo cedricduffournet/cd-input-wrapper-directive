@@ -47,7 +47,12 @@ angular.module("template/submit-button.html", []).run(["$templateCache", functio
   $templateCache.put("template/submit-button.html",
     "<div class=\"{{vm.containerFieldClass}}\">\n" +
     "                <div class=\"{{vm.containerSubmitClass}}\">\n" +
-    "                    <button type=\"submit\" class=\"{{vm.buttonClass}}\">{{vm.title}}</button>\n" +
+    "                    <button type=\"submit\" class=\"{{vm.buttonClass}}\" >{{vm.title}}</button>\n" +
+    "\n" +
+    "                    <button ng-if=\"vm.withCloseButton\" type=\"button\" class=\"btn btn-default\" ng-click=\"$hide()\">\n" +
+    "                        Fermer\n" +
+    "                    </button>\n" +
+    "                    \n" +
     "                </div>\n" +
     "            </div>");
 }]);
