@@ -49,10 +49,10 @@ angular.module("template/submit-button.html", []).run(["$templateCache", functio
     "                <div class=\"{{vm.containerSubmitClass}}\">\n" +
     "                    <button type=\"submit\" class=\"{{vm.buttonClass}}\" >{{vm.title}}</button>\n" +
     "\n" +
-    "                    <button ng-if=\"vm.withCloseButton\" type=\"button\" class=\"btn btn-default\" ng-click=\"$hide()\">\n" +
+    "                    <button ng-if=\"vm.withCloseButton\" type=\"button\" class=\"btn btn-default\" ng-click=\"vm.cancel()\">\n" +
     "                        Fermer\n" +
     "                    </button>\n" +
-    "                    \n" +
+    "\n" +
     "                </div>\n" +
     "            </div>");
 }]);

@@ -132,7 +132,7 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', function () {
     grunt.task.run([
       'html2js',
-      'jshint:all',
+
       'clean:demo',
       'copy:demo',
       'connect:demo:keepalive'
