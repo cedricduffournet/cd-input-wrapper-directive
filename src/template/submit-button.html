@@ -2,7 +2,7 @@
                 <div class="{{vm.containerSubmitClass}}">
                     <button type="submit" class="{{vm.buttonClass}}" >{{vm.title}}</button>
 
-                    <button ng-if="vm.withCloseButton" type="button" class="btn btn-default" ng-click="$hide()">
+                    <button ng-if="vm.withCloseButton" type="button" class="btn btn-default" ng-click="vm.cancel()">
                         Fermer
                     </button>
 
