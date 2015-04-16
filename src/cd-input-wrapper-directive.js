@@ -121,7 +121,7 @@
                     $scope.vm.labelClass = CssForm.label;
                 }
 
-            });
+            },100);
 
         }
     }
