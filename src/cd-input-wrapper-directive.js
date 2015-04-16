@@ -53,17 +53,6 @@
 
         return directive;
 
-        function compileFunc(tElement, tAttrs) {
-            return function link($scope, element, attrs, form, transcludeFn) {
-                transcludeFn($scope, function (clone, innerScope) {
-                    var test = $compile(clone)($scope);
-                    $scope.apply();
-                    console.log(test);
-                });
-                //$compile(element, transcludeFn)(scope);
-
-            }
-        }
 
         function linkFunc($scope, element, attrs, form, transclude) {
 
